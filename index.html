@@ -14,9 +14,10 @@ html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--tx);font:14px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;flex-direction:column}
 header{display:flex;align-items:center;gap:6px;padding:7px 10px;background:var(--pn);border-bottom:1px solid var(--bd);flex-wrap:wrap}
 h1{font-size:16px;margin:0 auto 0 0}
-button{font:inherit;color:var(--tx);background:var(--pn);border:1px solid var(--bd);border-radius:8px;padding:5px 10px;cursor:pointer}
+button{font:inherit;color:var(--tx);background:var(--pn);border:1px solid var(--bd);border-radius:8px;padding:5px 10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px}
 button:hover{border-color:var(--ac)}button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-#sz{width:80px;accent-color:var(--ac)}
+.svg-ic{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:middle;flex:none}
+#sz,#twSpeed,#twPause{width:80px;accent-color:var(--ac)}
 main{flex:1;min-height:0;display:flex}main.v{flex-direction:column}
 #ep{flex:0 0 var(--sz,50%);display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--pn)}
 #tabs{display:flex;gap:4px;padding:6px 8px;border-bottom:1px solid var(--bd);align-items:center}
@@ -38,7 +39,7 @@ main.drag iframe{pointer-events:none}
 main.v #rp{order:1}main.v #dv{order:2}main.v #ep{order:3}
 #rp{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--pn)}
 #rh{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid var(--bd);font-weight:600}
-#live{font-weight:400;font-size:12px;color:var(--st);margin-right:auto}
+#live{font-weight:400;font-size:12px;color:var(--st);margin-right:auto;display:inline-flex;align-items:center;gap:4px}
 #stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg);position:relative}
 #ph{position:relative;flex:none}
 #bz{position:absolute;left:0;top:0;transform-origin:0 0;box-sizing:border-box;padding:26px 12px 22px;background:#15171c;border-radius:44px;box-shadow:0 0 0 2px #2b2f38,0 10px 30px rgba(0,0,0,.35)}
@@ -76,7 +77,7 @@ main.v #rp{order:1}main.v #dv{order:2}main.v #ep{order:3}
 #bCon{margin-left:auto;padding:2px 8px;font-size:12px}
 footer{align-items:center;padding:4px 12px;font-size:12px;color:var(--mu);background:var(--pn);border-top:1px solid var(--bd);display:flex;gap:14px}
 .errl{background:rgba(229,72,77,.2);box-shadow:inset 3px 0 #e5484d}
-#errbar{padding:6px 10px;background:#fdecea;color:#b3261e;font-size:12.5px;cursor:pointer;border-bottom:1px solid #f5c2c0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#errbar{padding:6px 10px;background:#fdecea;color:#b3261e;font-size:12.5px;cursor:pointer;border-bottom:1px solid #f5c2c0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
 #errbar.warn{background:#fff6e0;color:#8a5a00;border-color:#f3dca0}
 #kb{flex:none;background:var(--pn);border-top:1px solid var(--bd)}
 #chips{display:flex;gap:4px;overflow-x:auto;padding:4px 8px;border-bottom:1px solid var(--bd);scrollbar-width:none}
@@ -93,15 +94,14 @@ footer{align-items:center;padding:4px 12px;font-size:12px;color:var(--mu);backgr
 #cl .exc{border-left:3px solid #ff6b6b;background:#151a24;margin:6px 0;padding:8px 10px;border-radius:6px;border-bottom:0}
 #cl .exc.lint{border-left-color:#f3b46b}
 #cl .exc div{padding:0;border:0}
-#cl .eh{display:flex;justify-content:space-between;gap:8px;font-weight:700;color:#ff8a80}
+#cl .eh{display:flex;justify-content:space-between;gap:8px;font-weight:700;color:#ff8a80;align-items:center}
 #cl .exc.lint .eh{color:#f3b46b}
-#cl .exc.note{border-left-color:#6d93ff}
 #cl .exc.note .eh{color:#7cb0ff}
 #cl .eh span{font-weight:400;color:#8a93a6}
 #cl .et{margin:4px 0;color:#dfe4ee}
 #cl .ef{margin:6px 0;padding:6px 8px;background:#0b0e14;border-radius:6px;overflow:auto;color:#c9d1e3;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace}
 #cl .er{color:#8a93a6;font-size:11.5px}
-#cl .ei{margin-top:4px;color:#7fd9a3}
+#cl .ei{margin-top:4px;color:#7fd9a3;display:flex;align-items:center;gap:4px}
 #cl .exc button{margin-top:6px}
 #help{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:10;padding:12px}
 #help .hb{background:var(--pn);color:var(--tx);border-radius:12px;max-width:560px;width:100%;max-height:85vh;overflow:auto;padding:14px 16px}
@@ -114,7 +114,7 @@ footer{align-items:center;padding:4px 12px;font-size:12px;color:var(--mu);backgr
 #sg{position:absolute;z-index:6;display:none;min-width:150px;max-width:92%;max-height:190px;overflow:auto;background:var(--pn);color:var(--tx);border:1px solid var(--bd);border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.28);font:13px ui-monospace,Menlo,Consolas,monospace}
 #sg .si{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:6px 10px;cursor:pointer;white-space:nowrap}
 #sg .si.on{background:var(--ac);color:#fff}
-#sg .si i{font-style:normal;opacity:.7;font-size:11px;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+#sg .si i{font-style:normal;opacity:.7;font-size:11px;overflow:hidden;text-overflow:ellipsis;max-width:150px;display:inline-flex;align-items:center;gap:3px}
 #sned{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:11;padding:12px}
 #sned .hb{background:var(--pn);color:var(--tx);border-radius:12px;max-width:620px;width:100%;max-height:88vh;overflow:auto;padding:14px 16px}
 #sned h3{margin:4px 0 6px;font-size:14px}
@@ -191,7 +191,7 @@ footer button{white-space:nowrap;flex:none}
 #sInfo{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 #sMsg{white-space:nowrap}
 #pv2{position:absolute;z-index:6;display:none;max-width:92%;min-width:160px;background:var(--pn);color:var(--tx);border:1px solid var(--ac);border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.28);overflow:hidden;cursor:pointer}
-#pv2 .ph{font-size:11px;padding:3px 8px;background:var(--ac);color:#fff}
+#pv2 .ph{font-size:11px;padding:3px 8px;background:var(--ac);color:#fff;display:flex;align-items:center;gap:4px}
 #sbar{flex:none;background:var(--pn);border-top:1px solid var(--bd);margin-left:var(--avl,0px);margin-right:var(--avr,0px)}
 #sbar #sg{position:static;display:none;flex-direction:row;gap:5px;padding:5px 8px;min-width:0;max-width:none;max-height:none;overflow-x:auto;overflow-y:hidden;border:0;border-radius:0;box-shadow:none;background:transparent;scrollbar-width:none;z-index:auto}
 #sbar #sg .si{flex:none;border:1px solid var(--bd);border-radius:14px;padding:3px 11px;gap:8px}
@@ -206,7 +206,7 @@ footer button{white-space:nowrap;flex:none}
 <main id="m">
 <section id="ep">
 <div id="tabs">
-<button class="tb" data-t="html">HTML</button><button class="tb" data-t="css">CSS</button><button class="tb" data-t="js">JS</button><span class="sp"></span><button id="bSc" title="Tampilkan / sembunyikan pintasan">⚡</button><button id="bKb" title="Tampilkan / sembunyikan keyboard simbol">⌨</button><button id="bLive" title="Tampilkan / sembunyikan live (Alt+L)">📱 Live</button>
+<button class="tb" data-t="html">HTML</button><button class="tb" data-t="css">CSS</button><button class="tb" data-t="js">JS</button><span class="sp"></span><button id="bSc" title="Tampilkan / sembunyikan pintasan"><svg class="svg-ic" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></button><button id="bKb" title="Tampilkan / sembunyikan keyboard simbol"><svg class="svg-ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"></path></svg></button><button id="bLive" title="Tampilkan / sembunyikan live (Alt+L)"><svg class="svg-ic" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg> Live</button>
 
 </div>
 <div id="fr" class="hide"><input id="fq" placeholder="Cari"><input id="frp" placeholder="Ganti dengan"><span id="fc"></span><button id="fP">↑</button><button id="fN">↓</button><button id="fR">Ganti</button><button id="fA">Semua</button><button id="fCase" title="Bedakan huruf besar/kecil">Aa</button><button id="fX">✕</button></div>
@@ -216,25 +216,56 @@ footer button{white-space:nowrap;flex:none}
 </section>
 <div id="dv" title="Seret untuk mengatur ukuran (klik 2x = reset)"></div>
 <section id="rp">
-<div id="rh">Hasil <span id="live"></span><span id="dinfo"></span><select id="dev" title="Ukuran layar"></select><button id="bMore" title="Tombol lainnya (putar, sematkan, bingkai saja, hindari)">⋯</button><button id="bRot" title="Putar layar">⟳</button><button id="bFo" title="Mode bingkai HP saja (tanpa panel)">🖼</button><button id="bAv" title="Kode otomatis menghindari Live yang melayang">↔</button><button id="bDock" title="Sematkan Live agar tidak menutupi kode: atas / bawah / kanan / melayang">📌</button><button id="bMax" title="Perbesar jendela Live sepenuh layar (Alt+F)">⛶</button><button id="bLx" title="Tutup">✕</button></div>
+<div id="rh">Hasil <span id="live"></span><span id="dinfo"></span><select id="dev" title="Ukuran layar"></select><button id="bMore" title="Tombol lainnya (putar, sematkan, bingkai saja, hindari)"><svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button><button id="bRot" title="Putar layar"><svg class="svg-ic" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></button><button id="bFo" title="Mode bingkai HP saja (tanpa panel)"><svg class="svg-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><button id="bAv" title="Kode otomatis menghindari Live yang melayang"><svg class="svg-ic" viewBox="0 0 24 24"><polyline points="17 11 21 7 17 3"></polyline><line x1="21" y1="7" x2="9" y2="7"></line><polyline points="7 13 3 17 7 21"></polyline><line x1="3" y1="17" x2="15" y2="17"></line></svg></button><button id="bDock" title="Sematkan Live agar tidak menutupi kode: atas / bawah / kanan / melayang"><svg class="svg-ic" viewBox="0 0 24 24"><line x1="12" y1="17" x2="12" y2="22"></line><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a1 1 0 0 0 0-2H8a1 1 0 0 0 0 2h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"></path></svg></button><button id="bMax" title="Perbesar jendela Live sepenuh layar (Alt+F)"><svg class="svg-ic" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button><button id="bLx" title="Tutup">✕</button></div>
 <div id="errbar" class="hide"></div>
-<div id="stage"><div id="ph"><div id="bz"><iframe id="pv" sandbox="allow-scripts"></iframe></div></div></div>
+<div id="stage"><div id="ph"><div id="bz"><iframe id="pv" sandbox="allow-scripts allow-modals allow-forms allow-popups"></iframe></div></div></div>
 <div id="rtab" title="Tampilkan tombol">⌄</div><div id="rz" title="Seret untuk mengubah ukuran"></div>
 </section>
 </main>
 <div id="set" class="hide">
 <span>Kode</span><button id="bMinus">A−</button><button id="bPlus">A+</button>
 <input type="range" id="sz" class="hide" min="15" max="85">
-<button id="bOri" class="hide">⇄</button><button id="bAh" title="Sembunyikan tombol Live otomatis saat tidak dipakai">⇱ Auto-sembunyi</button><button id="bLn" title="Nomor baris">№ Nomor</button><button id="bWrap" title="Bungkus baris panjang (Alt+Z)">↵ Bungkus</button>
-<button id="bSn">✎ Snippet</button><button id="bInfo">ℹ Fitur tersembunyi</button><button id="bHelp">⌨ Pintasan</button><button id="bDl">Unduh</button><button id="bDlx" title="Opsi unduh lain">⋯ Opsi unduh</button><label id="bUp" style="position:relative;overflow:hidden;display:inline-block;cursor:pointer;color:var(--tx);background:var(--pn);border:1px solid var(--bd);border-radius:8px;padding:5px 10px">Unggah<input type="file" id="fi3" multiple style="position:absolute;inset:0;opacity:0;width:100%;height:100%;font-size:200px;cursor:pointer"></label><input type="file" id="fi" multiple class="hide" style="display:none"><button id="bCopy">Salin</button><button id="bReset">Reset</button><button id="bTheme">Tema</button>
+<button id="bOri" class="hide">⇄</button><button id="bAh" title="Sembunyikan tombol Live otomatis saat tidak dipakai"><svg class="svg-ic" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg> Auto-sembunyi</button><button id="bLn" title="Nomor baris">№ Nomor</button><button id="bWrap" title="Bungkus baris panjang (Alt+Z)">↵ Bungkus</button>
+<button id="bTw" title="Aktifkan efek pengetikan otomatis saat paste"><svg class="svg-ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"></path></svg> Typewriter: On</button>
+<label title="Kecepatan ketik (ms/karakter)">Kecepatan: <input type="range" id="twSpeed" min="5" max="150" value="25"><span id="twSpeedLbl">25ms</span></label>
+<label title="Durasi jeda di tag penutup / simbol (ms)">Jeda Penutup: <input type="range" id="twPause" min="100" max="2000" value="400" step="50"><span id="twPauseLbl">400ms</span></label>
+<button id="bSn"><svg class="svg-ic" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Snippet</button><button id="bInfo"><svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> Fitur tersembunyi</button><button id="bHelp"><svg class="svg-ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"></path></svg> Pintasan</button><button id="bDl"><svg class="svg-ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Unduh</button><button id="bDlx" title="Opsi unduh lain"><svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg> Opsi unduh</button><label id="bUp" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:5px;cursor:pointer;color:var(--tx);background:var(--pn);border:1px solid var(--bd);border-radius:8px;padding:5px 10px"><svg class="svg-ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg> Unggah<input type="file" id="fi3" multiple style="position:absolute;inset:0;opacity:0;width:100%;height:100%;font-size:200px;cursor:pointer"></label><input type="file" id="fi" multiple class="hide" style="display:none"><button id="bCopy"><svg class="svg-ic" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Salin</button><button id="bReset"><svg class="svg-ic" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg> Reset</button><button id="bTheme"><svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg> Tema</button>
 </div>
-<footer><span id="sInfo"></span><span id="sMsg"></span><button id="bCon" title="Tampilkan / sembunyikan konsol (Ctrl+J)">Konsol (0)</button><button id="bSet">⚙ Pengaturan</button></footer>
-<div id="con" class="hide"><div id="ch"><span class="ct">Konsol</span><button id="bCm" title="Perkecil teks">A−</button><button id="bCp" title="Perbesar teks">A+</button><button id="bClr">Bersihkan</button><button id="bCMax" title="Konsol layar penuh / kembali">⛶</button><button id="bCx" title="Tutup konsol">✕</button></div><div id="cl"></div><div id="cz" title="Seret untuk mengubah ukuran"></div></div>
+<footer><span id="sInfo"></span><span id="sMsg"></span><button id="bCon" title="Tampilkan / sembunyikan konsol (Ctrl+J)">Konsol (0)</button><button id="bSet"><svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Pengaturan</button></footer>
+<div id="con" class="hide"><div id="ch"><span class="ct">Konsol</span><button id="bCm" title="Perkecil teks">A−</button><button id="bCp" title="Perbesar teks">A+</button><button id="bClr">Bersihkan</button><button id="bCMax" title="Konsol layar penuh / kembali"><svg class="svg-ic" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg></button><button id="bCx" title="Tutup konsol">✕</button></div><div id="cl"></div><div id="cz" title="Seret untuk mengubah ukuran"></div></div>
 <div id="sned" class="hide"><div class="hb"></div></div>
 <div id="help" class="hide"><div class="hb"></div></div>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+// Helper SVG Icons Generator
+const SVG = {
+  bolt: '<svg class="svg-ic" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+  search: '<svg class="svg-ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+  edit: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>',
+  undo: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path></svg>',
+  redo: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M21 7v6h-6"></path><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"></path></svg>',
+  outdent: '<svg class="svg-ic" viewBox="0 0 24 24"><polyline points="7 8 3 12 7 16"></polyline><line x1="21" y1="12" x2="3" y2="12"></line><line x1="21" y1="6" x2="11" y2="6"></line><line x1="21" y1="18" x2="11" y2="18"></line></svg>',
+  indent: '<svg class="svg-ic" viewBox="0 0 24 24"><polyline points="17 8 21 12 17 16"></polyline><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="13" y2="6"></line><line x1="3" y1="18" x2="13" y2="18"></line></svg>',
+  copy: '<svg class="svg-ic" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>',
+  arrowUp: '<svg class="svg-ic" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>',
+  arrowDown: '<svg class="svg-ic" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>',
+  trash: '<svg class="svg-ic" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>',
+  select: '<svg class="svg-ic" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>',
+  download: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>',
+  save: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>',
+  share: '<svg class="svg-ic" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>',
+  external: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>',
+  upload: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>',
+  folder: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>',
+  check: '<svg class="svg-ic" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+  info: '<svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>',
+  warning: '<svg class="svg-ic" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+  error: '<svg class="svg-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+  keyboard: '<svg class="svg-ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"></path></svg>'
+};
+
 let lines;
 function emit(t,x){x.split('\n').forEach((p,i)=>{if(i)lines.push([]);if(p)lines[lines.length-1].push(t?'<span class="'+t+'">'+esc(p)+'</span>':esc(p))})}
 function walk(text,re,cb){let i=0,m;re.lastIndex=0;while((m=re.exec(text))){if(m.index>i)emit(null,text.slice(i,m.index));cb(m);i=re.lastIndex;if(!m[0])re.lastIndex++}if(i<text.length)emit(null,text.slice(i))}
@@ -263,13 +294,61 @@ const SAMPLE={
 html:'<h1>Halo, Dunia!</h1>\n<p>Klik tombol untuk menghitung.</p>\n<button id="btn">Klik saya</button>\n<p id="out">0</p>',
 css:'body {\n  font-family: system-ui, sans-serif;\n  text-align: center;\n  padding: 24px;\n}\nh1 { color: #3b6cf6; }\nbutton {\n  padding: 10px 18px;\n  font-size: 16px;\n  border: 0;\n  border-radius: 8px;\n  background: #3b6cf6;\n  color: #fff;\n}\n#out { font-size: 48px; margin: 12px; }',
 js:'let n = 0;\nconst out = document.getElementById("out");\n\ndocument.getElementById("btn").onclick = () => {\n  n++;\n  out.textContent = n;\n  console.log("Klik ke", n);\n};'};
-let S={html:SAMPLE.html,css:SAMPLE.css,js:SAMPLE.js,tab:'html',fs:14,ori:'',sz:50,theme:'auto'};
+let S={html:SAMPLE.html,css:SAMPLE.css,js:SAMPLE.js,tab:'html',fs:14,ori:'',sz:50,theme:'auto',twEnabled:true,twSpeed:25,twPause:400};
 try{const r=JSON.parse(localStorage.getItem('cv3')||'null');if(r&&typeof r.html==='string')S=Object.assign(S,r)}catch(e){}
 if(!S.top){S.top=1;S.ori='v';S.sz=45}
 S.ori=S.ori||'v';
 if(S.wrap===undefined||S.wrap===null)S.wrap=innerWidth<700;
 function save(){try{localStorage.setItem('cv3',JSON.stringify(S))}catch(e){}}
 const EL={},E={html:0,css:0,js:0};
+let TW_TIMERS={html:null,css:null,js:null};
+
+function stopTypewriter(k){
+ if(TW_TIMERS[k]){clearTimeout(TW_TIMERS[k]);TW_TIMERS[k]=null}
+}
+
+function startTypewriter(k,pastedText,ta){
+ stopTypewriter(k);
+ const v=ta.value,a=ta.selectionStart,b=ta.selectionEnd;
+ const prefix=v.slice(0,a),suffix=v.slice(b);
+ let idx=0;
+ 
+ function step(){
+  if(idx<pastedText.length){
+   const ch=pastedText[idx];
+   const sliceSoFar=pastedText.slice(0,idx+1);
+   const currentFullText=prefix+sliceSoFar+suffix;
+   
+   S[k]=currentFullText;
+   ta.value=currentFullText;
+   E[k]=0;
+   
+   const newCursorPos=prefix.length+sliceSoFar.length;
+   ta.setSelectionRange(newCursorPos,newCursorPos);
+   paint(k);
+   info();
+   schedule();
+   reveal(ta);
+   
+   idx++;
+   
+   let delay=S.twSpeed||25;
+   const isClosingTag=/<\/[a-zA-Z0-9]+>$/.test(sliceSoFar);
+   const isSpecialPause=['.','!','?',':','\n','>','}'].includes(ch);
+   
+   if(isClosingTag||isSpecialPause){
+    delay+=S.twPause||400;
+   }
+   
+   TW_TIMERS[k]=setTimeout(step,delay);
+  }else{
+   TW_TIMERS[k]=null;
+   save();
+  }
+ }
+ step();
+}
+
 function gutter(k){
  const o=EL[k];if(!o||!o.gt)return;
  const on=S.ln!==false,ta=o.ta,txt=S[k],L=txt.split('\n'),dg=Math.max(2,String(L.length).length);
@@ -295,9 +374,20 @@ function paint(k){const o=EL[k];if(!o)return;o.pre.innerHTML=hl(S[k],k,E[k]);gut
  const ta=document.createElement('textarea');ta.spellcheck=false;ta.wrap='off';ta.autocapitalize='off';ta.autocomplete='off';
  const gt=document.createElement('div');gt.className='gt';gt.setAttribute('aria-hidden','true');d.append(pre,ta,gt);$('#eds').appendChild(d);EL[k]={d,pre,ta,gt};
  ta.value=S[k];pre.innerHTML=hl(S[k],k);
- ta.oninput=()=>{S[k]=ta.value;E[k]=0;paint(k);info();schedule();clearTimeout(window._sv);window._sv=setTimeout(save,500);sugUpdate(k,ta)};
+ ta.oninput=()=>{
+  if(TW_TIMERS[k])return;
+  S[k]=ta.value;E[k]=0;paint(k);info();schedule();clearTimeout(window._sv);window._sv=setTimeout(save,500);sugUpdate(k,ta)};
+ ta.addEventListener('paste',e=>{
+  if(S.twEnabled!==false){
+   e.preventDefault();
+   const pastedText=(e.clipboardData||window.clipboardData).getData('text');
+   if(pastedText){
+    startTypewriter(k,pastedText,ta);
+   }
+  }
+ });
  ta.onscroll=()=>{EL[k].gt.scrollTop=ta.scrollTop;pre.scrollTop=ta.scrollTop;pre.scrollLeft=ta.scrollLeft;if(SG)sugPaint()};
- ta.onkeydown=e=>keys(e,k,ta);
+ ta.onkeydown=e=>{stopTypewriter(k);keys(e,k,ta)};
  ta.addEventListener('beforeinput',e=>pair(e,k,ta));ta.onkeyup=e=>{const kk=e.key||'';if(kk==='Escape'||kk==='Control'||kk==='Shift'||kk==='Alt'||kk==='Meta'||kk==='ArrowUp'||kk==='ArrowDown')return;if(/^(ArrowLeft|ArrowRight|Home|End|PageUp|PageDown)$/.test(kk)&&!SG)return;if(kk===' '&&Date.now()-FORCE_T<700)return;sugUpdate(k,ta)};ta.onclick=()=>sugHide();ta.addEventListener('blur',()=>setTimeout(()=>{if(document.activeElement!==ta)sugHide()},300));
  ta.addEventListener('copy',e=>{if(ta.selectionStart===ta.selectionEnd){const [s0,e0]=lr(ta);e.clipboardData.setData('text/plain',ta.value.slice(s0,e0)+'\n');e.preventDefault()}});
  ta.addEventListener('cut',e=>{if(ta.selectionStart===ta.selectionEnd){const [s0,e0]=lr(ta);e.clipboardData.setData('text/plain',ta.value.slice(s0,e0)+'\n');e.preventDefault();act('del',k,ta)}});
@@ -310,6 +400,9 @@ function layout(){
  ['html','css','js'].forEach(k=>EL[k].d.classList.toggle('hide',k!==S.tab));
  $('#eds').classList.toggle('wrap',!!S.wrap);['html','css','js'].forEach(k=>{EL[k].ta.wrap=S.wrap?'soft':'off'});$('#bWrap').classList.toggle('on',!!S.wrap);
  $('#m').classList.toggle('v',S.ori==='v');$('#m').style.setProperty('--sz',S.sz+'%');$('#sz').value=S.sz;
+ $('#bTw').classList.toggle('on',S.twEnabled!==false);$('#bTw').innerHTML=SVG.keyboard+' Typewriter: '+(S.twEnabled!==false?'On':'Off');
+ $('#twSpeed').value=S.twSpeed||25;$('#twSpeedLbl').textContent=(S.twSpeed||25)+'ms';
+ $('#twPause').value=S.twPause||400;$('#twPauseLbl').textContent=(S.twPause||400)+'ms';
  dockApply();$('#rp').classList.toggle('fo',!!S.fo);$('#bFo').classList.toggle('on',!!S.fo);$('#bAv').classList.toggle('on',S.av!==false);avoidQ();['html','css','js'].forEach(gutter);$('#bLn').classList.toggle('on',S.ln!==false);
  chips();info();fit();
 }
@@ -393,12 +486,18 @@ function lintCSS(src){
 function card(m){
  const d=document.createElement('div');d.className='exc'+(m.t==='lint'?' lint':m.t==='note'?' note':'');
  const mk=(c,t)=>{const x=document.createElement('div');x.className=c;x.textContent=t;return x};
- const h=mk('eh',m.t==='note'?'ℹ Catatan':m.t==='lint'?'⚠ Peringatan '+m.kind:'⛔ '+m.kind);
+ const iconHeader=m.t==='note'?SVG.info:(m.t==='lint'?SVG.warning:SVG.error);
+ const h=document.createElement('div');h.className='eh';
+ h.innerHTML='<span>'+iconHeader+' '+(m.t==='note'?'Catatan':m.t==='lint'?'Peringatan '+m.kind:m.kind)+'</span>';
  const loc=document.createElement('span');loc.textContent=m.line?(m.t==='lint'?m.kind:'JS')+' · baris '+m.line+(m.col?', kolom '+m.col:''):'lokasi tidak diketahui';
  h.appendChild(loc);d.appendChild(h);d.appendChild(mk('et',m.title));
  if(m.frame){const p=document.createElement('pre');p.className='ef';p.textContent=m.frame;d.appendChild(p)}
  if(m.raw)d.appendChild(mk('er','Pesan asli: '+m.raw));
- if(m.hint)d.appendChild(mk('ei','💡 '+m.hint));
+ if(m.hint){
+   const hintEl=document.createElement('div');hintEl.className='ei';
+   hintEl.innerHTML=SVG.info+' '+esc(m.hint);
+   d.appendChild(hintEl);
+ }
  if(m.line){const b=document.createElement('button');b.textContent='Ke baris '+m.line;b.onclick=()=>goLine(m.lang,m.line,m.col);d.appendChild(b)}
  return d}
 function conRender(){
@@ -409,7 +508,10 @@ function conRender(){
  $('#bCon').textContent='Konsol ('+msgs.length+')'+(er?' ⛔'+er:'')+(li.length?' ⚠'+li.length:'');
  const first=ex[0]||li[0],bar=$('#errbar'),tot=ex.length+li.length;
  bar.classList.toggle('hide',!first);bar.classList.toggle('warn',!ex.length);
- if(first)bar.textContent=(ex.length?'⛔ ':'⚠ ')+first.kind+(first.line?' · baris '+first.line:'')+' — '+first.title+(tot>1?'  (+'+(tot-1)+' lainnya)':'');
+ if(first){
+   const ic=ex.length?SVG.error:SVG.warning;
+   bar.innerHTML=ic+' '+esc(first.kind)+(first.line?' · baris '+first.line:'')+' — '+esc(first.title)+(tot>1?'  (+'+(tot-1)+' lainnya)':'');
+ }
  E.html=E.css=E.js=0;msgs.forEach(m=>{if((m.t==='exc'||m.t==='lint')&&m.line&&!E[m.lang])E[m.lang]=m.line});
  ['html','css','js'].forEach(paint)}
 addEventListener('message',e=>{
@@ -418,7 +520,7 @@ addEventListener('message',e=>{
 function run(){
  RUN++;msgs=lintHTML(S.html).concat(lintCSS(S.css));conRender();
  $('#pv').srcdoc=build(true);
- $('#live').textContent='● live '+new Date().toLocaleTimeString('id-ID');
+ $('#live').innerHTML='● live '+new Date().toLocaleTimeString('id-ID');
 }
 const hasOwn=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
 const SNIP={
@@ -679,7 +781,8 @@ function sugPaint(){
  const cur=SI<0?0:SI;box.innerHTML='';
  SG.items.forEach((it,i)=>{const d=document.createElement('div');d.className='si'+(i===cur?' on':'');
   const l=document.createElement('span');l.textContent=it.t;
-  const r=document.createElement('i');r.textContent=it.sn?'⚡ '+it.sn.replace('¦','').split('\n')[0].trim().slice(0,26):KL[it.k]||'';
+  const r=document.createElement('i');
+  r.innerHTML=it.sn?SVG.bolt+' '+esc(it.sn.replace('¦','').split('\n')[0].trim().slice(0,26)):KL[it.k]||'';
   d.append(l,r);d.onmousedown=e=>e.preventDefault();d.onclick=()=>sugApply(it);box.appendChild(d)});
  box.style.display='flex';
  const el=box.children[cur];if(el){const br=box.getBoundingClientRect(),er=el.getBoundingClientRect();if(er.left<br.left)box.scrollLeft-=br.left-er.left+8;else if(er.right>br.right)box.scrollLeft+=er.right-br.right+8}
@@ -704,7 +807,8 @@ function prevPaint(){
  if(!c&&SG){const it=SG.items[SI<0?0:SI];if(it&&it.sn)c={kind:'Snippet',tok:null,code:it.sn.replace(/¦/g,''),it}}
  PV=c;if(!c){box.style.display='none';sbarSync();return}
  box.innerHTML='';
- const h=document.createElement('div');h.className='ph';h.textContent='⚡ '+c.kind+' · ketuk atau tekan Tab untuk memakai';
+ const h=document.createElement('div');h.className='ph';
+ h.innerHTML=SVG.bolt+' '+c.kind+' · ketuk atau tekan Tab untuk memakai';
  const pre=document.createElement('pre'),L=c.code.split('\n');
  pre.textContent=L.slice(0,14).join('\n')+(L.length>14?'\n… (+'+(L.length-14)+' baris)':'');
  box.append(h,pre);box.style.display='block';
@@ -774,7 +878,12 @@ function setTab(t){S.tab=t;save();layout();EL[t].ta.focus()}
 function goLine(lang,line,col){
  S.tab=lang;layout();const ta=EL[lang].ta,v=ta.value.split('\n');let off=0;for(let i=0;i<line-1&&i<v.length;i++)off+=v[i].length+1;
  const lh=parseFloat(getComputedStyle(ta).lineHeight)||21;ta.focus();ta.setSelectionRange(off,off+(v[line-1]||'').length);ta.scrollTop=Math.max(0,(line-3)*lh);ta.dispatchEvent(new Event('scroll'))}
-function reveal(ta){const ln=ta.value.slice(0,ta.selectionStart).split('\n').length,lh=parseFloat(getComputedStyle(ta).lineHeight)||21,y=(ln-1)*lh;if(y<ta.scrollTop||y>ta.scrollTop+ta.clientHeight-2*lh)ta.scrollTop=Math.max(0,y-ta.clientHeight/2);ta.dispatchEvent(new Event('scroll'))}
+function reveal(ta){
+ const p=caretXY(ta,ta.selectionStart),vv=window.visualViewport,
+ top=ta.getBoundingClientRect().top,
+ vis=Math.max(p.lh*4,Math.min(ta.clientHeight,(vv?vv.height:innerHeight)-top));
+ if(p.y<p.lh||p.y>vis-p.lh*3)ta.scrollTop+=p.y-vis*0.4;
+ ta.dispatchEvent(new Event('scroll'))}
 function delr(ta,x,y){ta.setSelectionRange(x,y);if(!document.execCommand('delete')){ta.setRangeText('',x,y,'end');ta.dispatchEvent(new Event('input'))}}
 function repl(ta,out,s,en,a,b){const d=out.length-(en-s);if(a===b){const c=Math.max(s,a+d);ins(ta,out,s,en,c,c)}else ins(ta,out,s,en,s,s+out.length)}
 function jumpBr(ta){
@@ -863,16 +972,16 @@ function chips(){
  $('#keys').classList.toggle('hide',S.kb===false);
  $('#kb').classList.toggle('hide',S.sc===false&&S.kb===false);
  $('#bSc').classList.toggle('on',S.sc!==false);$('#bKb').classList.toggle('on',S.kb!==false);
- const mk=(tg,label,cls,fn,tt)=>{const b=document.createElement('button');b.textContent=label;if(tt)b.title=tt;if(cls)b.className=cls;b.onmousedown=e=>e.preventDefault();b.onclick=fn;tg.appendChild(b);return b};
+ const mk=(tg,label,cls,fn,tt)=>{const b=document.createElement('button');b.innerHTML=label;if(tt)b.title=tt;if(cls)b.className=cls;b.onmousedown=e=>e.preventDefault();b.onclick=fn;tg.appendChild(b);return b};
  const put=(t,c)=>{const ta=EL[k].ta;ta.focus();const a=ta.selectionStart,b=ta.selectionEnd;ins(ta,t,a,b,a+c,a+c)};
  const mv=d=>{const ta=EL[k].ta;ta.focus();const p=Math.max(0,Math.min(ta.value.length,ta.selectionStart+d));ta.setSelectionRange(p,p);reveal(ta)};
  mk(kk,'⇥','',()=>{const ta=EL[k].ta;ta.focus();ta.dispatchEvent(new KeyboardEvent('keydown',{key:'Tab',bubbles:true,cancelable:true}))},'Tab: pakai pratinjau / snippet / indentasi');
  mk(kk,'◀','',()=>mv(-1));mk(kk,'▶','',()=>mv(1));
  ['<','>','/','{','}','(',')','[',']',';','"',"'",'=',':','`','!','.',',','#','$','&','|','_','-','+','*','%','@'].forEach(c=>mk(kk,c,'',()=>put(c,1)));
- mk(box,'🔍','',()=>openFind(EL[k].ta),'Cari / ganti');
- mk(box,'✎','',openSnipEd,'Edit kode pintasan (snippet)');
- [['↶','undo','Urungkan'],['↷','redo','Ulangi'],['⇤','out','Kurangi indentasi'],['⇥','ind','Indentasi'],['//','cmt','Komentari baris'],['⧉','dup','Gandakan baris'],['↑','up','Pindah baris ke atas'],['↓','down','Pindah baris ke bawah'],['🗑','del','Hapus baris'],['☰','sel','Pilih baris']].forEach(x=>mk(box,x[0],'',()=>act(x[1],k,EL[k].ta),x[2]));
- Object.keys(SNIP[k]).forEach(t=>mk(box,t,'sn',()=>{const ta=EL[k].ta;ta.focus();const a=ta.selectionStart,b=ta.selectionEnd,v=ta.value,ind=/^\s*/.exec(v.slice(ls(v,a),a))[0],x=expand(SNIP[k][t],ind);ins(ta,x[0],a,b,a+x[1],a+x[1])}));
+ mk(box,SVG.search,'',()=>openFind(EL[k].ta),'Cari / ganti');
+ mk(box,SVG.edit,'',openSnipEd,'Edit kode pintasan (snippet)');
+ [[SVG.undo,'undo','Urungkan'],[SVG.redo,'redo','Ulangi'],[SVG.outdent,'out','Kurangi indentasi'],[SVG.indent,'ind','Indentasi'],['//','cmt','Komentari baris'],[SVG.copy,'dup','Gandakan baris'],[SVG.arrowUp,'up','Pindah baris ke atas'],[SVG.arrowDown,'down','Pindah baris ke bawah'],[SVG.trash,'del','Hapus baris'],[SVG.select,'sel','Pilih baris']].forEach(x=>mk(box,x[0],'',()=>act(x[1],k,EL[k].ta),x[2]));
+ Object.keys(SNIP[k]).forEach(t=>mk(box,esc(t),'sn',()=>{const ta=EL[k].ta;ta.focus();const a=ta.selectionStart,b=ta.selectionEnd,v=ta.value,ind=/^\s*/.exec(v.slice(ls(v,a),a))[0],x=expand(SNIP[k][t],ind);ins(ta,x[0],a,b,a+x[1],a+x[1])}));
 }
 function openSnipEd(){
  const k=S.tab,box=$('#sned .hb');
@@ -885,8 +994,8 @@ function openSnipEd(){
    const r=mk('div','sr'),n=mk('input'),t=mk('textarea'),b=mk('div','sb');
    n.value=w[0];n.placeholder='nama';n.autocapitalize='off';n.spellcheck=false;n.oninput=()=>{w[0]=n.value};
    t.value=w[1];t.spellcheck=false;t.autocapitalize='off';t.placeholder='kode snippet';t.oninput=()=>{w[1]=t.value};
-   const c=mk('button','', '¦');c.title='Sisipkan penanda kursor';c.onclick=()=>{const a=t.selectionStart,e=t.selectionEnd;t.setRangeText('¦',a,e,'end');w[1]=t.value;t.focus()};
-   const d=mk('button','','🗑');d.title='Hapus';d.onclick=()=>{W.splice(i,1);draw()};
+   const c=document.createElement('button');c.innerHTML='¦';c.title='Sisipkan penanda kursor';c.onclick=()=>{const a=t.selectionStart,e=t.selectionEnd;t.setRangeText('¦',a,e,'end');w[1]=t.value;t.focus()};
+   const d=document.createElement('button');d.innerHTML=SVG.trash;d.title='Hapus';d.onclick=()=>{W.splice(i,1);draw()};
    b.append(c,d);r.append(n,t,b);list.appendChild(r)})}
  box.innerHTML='';
  const h=mk('h3','','Edit kode pintasan: '+k.toUpperCase());
@@ -899,7 +1008,8 @@ function openSnipEd(){
  cl.onclick=closeSnipEd;
  sv.onclick=()=>{
   const o={};W.forEach(w=>{const n=w[0].replace(/\s+/g,'');if(n)o[n]=w[1]});
-  S.snip=S.snip||{};S.snip[k]=o;SNIP[k]=o;save();chips();closeSnipEd();msg('Snippet '+k.toUpperCase()+' tersimpan ✓')};
+  S.snip=S.snip||{};S.snip[k]=o;SNIP[k]=o;save();chips();closeSnipEd();msg('Snippet '+k.toUpperCase()+' tersimpan');
+ };
  ba.append(add,rs,cl,sv);
  box.append(h,p,list,ba);draw();
  $('#sned').classList.remove('hide')}
@@ -948,7 +1058,7 @@ function avoidApply(){
    const c=[[lw*e.height,lw,'l'],[rw*e.height,rw,'r'],[e.width*th,th,'t'],[e.width*bh,bh,'b']].sort((a,b)=>b[0]-a[0])[0];
    if(c[1]>=110){
     if(c[2]==='l')R=e.right-r.left;else if(c[2]==='r')L=r.right-e.left;else if(c[2]==='t')B=e.bottom-r.top;else T=r.bottom-e.top}
-   else if(!AVHINT){AVHINT=true;msg('Ruang kode sempit: kecilkan Live, pakai 🖼 atau 📌')}}}
+   else if(!AVHINT){AVHINT=true;msg('Ruang kode sempit: kecilkan Live, pakai bingkai atau pin')}}}
  T=Math.round(T);R=Math.round(R);B=Math.round(B);L=Math.round(L);
  const k=[T,R,B,L].join();if(k===AVK)return;AVK=k;
  const st=$('#ep').style;st.setProperty('--avt',T+'px');st.setProperty('--avr',R+'px');st.setProperty('--avb',B+'px');st.setProperty('--avl',L+'px');
@@ -957,7 +1067,7 @@ function setFo(on){
  S.fo=!!on;
  if(S.fo){if(!S.live)showLive(true);S.fl.w=Math.min(S.fl.w,Math.round(innerWidth*.45))}
  $('#rp').classList.toggle('fo',S.fo);$('#bFo').classList.toggle('on',S.fo);
- save();floatApply();fit();msg(S.fo?'Bingkai HP saja (ketuk 🖼 untuk kembali)':'Panel Live kembali')}
+ save();floatApply();fit();msg(S.fo?'Bingkai HP saja':'Panel Live kembali')}
 $('#bFo').onclick=()=>setFo(!S.fo);
 $('#bAv').onclick=()=>{S.av=S.av===false;AVHINT=false;AVK='';save();$('#bAv').classList.toggle('on',S.av!==false);avoidQ();msg('Kode menghindari Live: '+(S.av===false?'mati':'aktif'))};
 function dockApply(){
@@ -977,63 +1087,29 @@ function hiddenInfo(){
  ['Jendela Live dan Konsol',[
   ['Ketuk 2x judul "Hasil"','Perbesar / kecilkan jendela Live (juga Alt + F)'],
   ['Ketuk 2x judul "Konsol"','Konsol layar penuh / kembali'],
-  ['Tombol 📌 (di balik ⋯ header Live)','Sematkan Live di atas / bawah / kanan agar tidak menutupi kode; tekan lagi hingga kembali melayang'],
-  ['Seret pembatas (Live disematkan)','Atur besar kecilnya Live; ketuk 2x untuk mengembalikan ukuran'],
-  ['Tombol 🖼 (di balik ⋯ header Live)','Mode bingkai HP saja: panel hilang, hanya bingkai HP dengan pil kontrol kecil di atasnya (seret ⠿ untuk memindah, sudut kanan bawah untuk ukuran)'],
-  ['Tombol ↔ (di balik ⋯ header Live)','Kode otomatis menghindari Live yang melayang: editor menyempit ke sisi terluas yang tidak tertutup (perlu ruang minimal 110 px)'],
-  ['Tombol Live hilang otomatis','Header Live tersembunyi setelah 3,5 detik tidak disentuh; ketuk tab kecil ⌄ di tepi atas Live untuk memunculkannya lagi; matikan lewat Pengaturan → Auto-sembunyi'],
-  ['Seret judul jendela','Pindahkan Live atau Konsol'],
-  ['Seret pojok kanan bawah','Ubah ukuran jendela'],
-  ['Ketuk jendela','Membawanya ke depan saat Live dan Konsol bertumpuk'],
-  ['Daftar ukuran layar','Pilih perangkat; "Penuh (tanpa bingkai)" menghilangkan bingkai HP; ⟳ memutar layar'],
-  ['Bar error merah / kuning','Ketuk untuk membuka Konsol dan loncat ke baris bermasalah'],
-  ['Konsol','Pesan error dijelaskan dalam bahasa Indonesia dengan saran perbaikan; A− / A+ mengatur ukuran teks'],
-  ['Menutup Live saat penuh','Ukurannya otomatis dikecilkan kembali']]],
- ['Papan pintasan di bawah editor',[
-  ['Tombol ⚡ dan ⌨ (bar tab)','Sembunyikan / tampilkan baris pintasan dan keyboard simbol secara terpisah'],
-  ['Tombol ✎','Ubah, tambah, atau hapus snippet; tanda ¦ = posisi kursor'],
-  ['Geser baris chip','Geser ke samping untuk melihat chip lainnya'],
-  ['◀ ▶','Geser kursor satu karakter']]],
- ['Menulis cepat',[
-  ['Kata + Tab','Perluas snippet, misalnya btn, flex, log, fn'],
-  ['Pratinjau kode cepat','Ketik singkatan Emmet di awal baris, misalnya ol>li*5{$}; hasilnya tampil di bar tepat di atas papan pintasan sehingga tidak menutupi kode maupun Live. Ketuk bar pratinjau, tombol ⇥, atau Tab untuk memakainya'],
-  ['Tab di HTML','Emmet: ul>li*3, div.card>h2+p, input#nama'],
-  ['Ctrl + Space','Munculkan saran otomatis; ↑ ↓ memilih, Tab / Enter menerima'],
-  ['Mengetik >','Tag HTML otomatis ditutup'],
-  ['Mengetik ( { [ " \'','Pasangannya otomatis muncul; mengetik penutup melewatinya'],
-  ['Backspace di antara pasangan','Menghapus keduanya sekaligus'],
-  ['Enter di antara { }','Membuat blok dengan indentasi rapi']]],
- ['Operasi baris',[
-  ['Ctrl + C / X tanpa pilihan','Salin / potong seluruh baris'],
-  ['Alt + ↑ / ↓','Pindahkan baris; Shift + Alt + ↑ / ↓ menggandakan'],
-  ['Ctrl + Enter','Sisipkan baris di bawah; Shift menambah di atas'],
-  ['Home','Tekan sekali ke awal teks, dua kali ke awal baris'],
-  ['Ctrl + D','Pilih kata, tekan lagi untuk kemunculan berikutnya'],
-  ['Ctrl + Shift + \\','Loncat ke kurung pasangan']]],
- ['Cari dan navigasi',[
-  ['Ctrl + F / H','Cari / cari dan ganti; Ctrl + Alt + Enter di kolom ganti = ganti semua'],
-  ['Ctrl + G lalu :12','Loncat ke baris 12'],
-  ['F3 / Shift + F3','Hasil pencarian berikutnya / sebelumnya'],
-  ['Nomor baris merah','Menandai baris yang menyebabkan error atau peringatan'],
-  ['Alt + 1 / 2 / 3','Pindah tab HTML / CSS / JS']]],
- ['Lainnya',[
-  ['Alt + Z','Bungkus baris panjang (juga tombol di Pengaturan)'],
-  ['Alt + L / Ctrl + J','Tampilkan Live / Konsol'],
-  ['F5','Jalankan ulang hasil'],
-  ['Ctrl + S','Unduh index.html langsung ke folder Unduhan'],
-  ['Tombol Unduh / Unggah','Simpan (unduh, simpan sebagai, bagikan, salin) atau muat berkas .html/.css/.js; berkas juga bisa diseret ke halaman'],
-  ['Tombol Tema','Bergantian otomatis, terang, gelap'],
-  ['Reset','Perlu ditekan dua kali agar tidak terhapus tidak sengaja'],
-  ['Pratinjau','Berjalan di kotak aman: fetch ke internet dan localStorage hanya berfungsi pada file hasil unduhan']]]];
- let h='<h3>Fitur tersembunyi</h3><p style="font-size:12px;color:var(--mu);margin:0 0 6px">Fitur yang tidak punya tombol sendiri. Di Mac, Ctrl diganti ⌘ dan Alt diganti ⌥.</p>';
+  ['Tombol Pin','Sematkan Live di atas / bawah / kanan agar tidak menutupi kode'],
+  ['Seret pembatas','Atur besar kecilnya Live'],
+  ['Tombol Frame','Mode bingkai HP saja'],
+  ['Tombol Avoid','Kode otomatis menghindari Live melayang'],
+  ['Tombol Auto-sembunyi','Header Live tersembunyi otomatis'],
+  ['Seret judul / pojok','Pindahkan / ubah ukuran jendela']]],
+ ['Menulis cepat & Navigasi',[
+  ['Kata + Tab','Perluas snippet'],
+  ['Emmet','Ketik sintaks Emmet lalu tekan Tab'],
+  ['Ctrl + Space','Munculkan saran otomatis'],
+  ['Ctrl + F / H','Cari / ganti'],
+  ['Ctrl + G','Loncat ke baris'],
+  ['Ctrl + /','Komentari baris'],
+  ['Alt + ↑ / ↓','Pindahkan baris; Shift + Alt + ↑ / ↓ menggandakan']]]];
+ let h='<h3>Fitur tersembunyi</h3><p style="font-size:12px;color:var(--mu);margin:0 0 6px">Fitur pintasan Coding Viewer.</p>';
  G.forEach(g=>{h+='<h3>'+g[0]+'</h3><table>'+g[1].map(r=>'<tr><td><kbd>'+esc(r[0])+'</kbd></td><td>'+esc(r[1])+'</td></tr>').join('')+'</table>'});
  $('#help .hb').innerHTML=h+'<p style="text-align:right"><button id="hx">Tutup</button></p>';
  $('#help').classList.remove('hide');$('#hx').onclick=()=>$('#help').classList.add('hide')}
 $('#bInfo').onclick=hiddenInfo;
 function help(){
- const sh=[['F5','Jalankan ulang hasil'],['Alt + F','Perbesar / kecilkan jendela Live sepenuh layar (bingkai HP tetap berlaku)'],['Ketuk 2x judul "Hasil"','Perbesar / kecilkan jendela Live'],['Ctrl + S','Unduh index.html'],['Alt + 1 / 2 / 3','Pindah tab HTML / CSS / JS'],['Ctrl + F','Cari'],['Ctrl + H','Cari dan ganti (kursor langsung di kolom ganti)'],['Enter di kolom ganti','Ganti satu; Ctrl + Alt + Enter ganti semua'],['Alt + C','Bedakan huruf besar/kecil (di kolom cari)'],['Ctrl + Space','Tampilkan saran otomatis'],['Ctrl + J','Buka / tutup konsol'],['Escape','Tutup saran dan kolom cari'],['Alt + Z','Bungkus baris panjang (atau tombol ↵ Bungkus di Pengaturan)'],['↑ / ↓ saat saran terbuka','Pilih saran; Enter atau Tab untuk menerima'],['F3 / Shift + F3','Hasil berikutnya / sebelumnya'],['Ctrl + G','Ke baris (ketik :nomor lalu Enter)'],['Ctrl + /','Komentari baris'],['Shift + Alt + A','Komentar blok'],['Ctrl + Enter','Sisipkan baris di bawah'],['Ctrl + Shift + Enter','Sisipkan baris di atas'],['Alt + ↑ / ↓','Pindahkan baris'],['Shift + Alt + ↑ / ↓','Gandakan baris'],['Ctrl + Shift + K','Hapus baris'],['Ctrl + L','Pilih baris'],['Ctrl + D','Pilih kata, lalu loncat ke kemunculan berikutnya'],['Ctrl + ] / [','Tambah / kurangi indentasi'],['Tab / Shift + Tab','Perluas snippet atau indentasi'],['Ctrl + Shift + \\','Loncat ke kurung pasangan'],['Home','Awal teks / awal baris'],['Ctrl + + / -','Perbesar / perkecil font'],['Ctrl + C / X tanpa pilihan','Salin / potong seluruh baris'],['Tab di HTML','Emmet: ul>li*3 atau div.card>h2+p'],['Backspace di antara pasangan','Hapus kedua tanda sekaligus'],['Ctrl + Z / Ctrl + Y','Urungkan / ulangi']];
+ const sh=[['F5','Jalankan ulang hasil'],['Alt + F','Perbesar / kecilkan jendela Live'],['Ctrl + S','Unduh index.html'],['Alt + 1 / 2 / 3','Pindah tab HTML / CSS / JS'],['Ctrl + F','Cari'],['Ctrl + H','Cari dan ganti'],['Ctrl + Space','Tampilkan saran otomatis'],['Ctrl + J','Buka / tutup konsol'],['Escape','Tutup saran'],['Alt + Z','Bungkus baris panjang'],['Ctrl + /','Komentari baris'],['Ctrl + Enter','Sisipkan baris di bawah'],['Alt + ↑ / ↓','Pindahkan baris'],['Ctrl + D','Pilih kata berikutnya'],['Ctrl + Z / Ctrl + Y','Urungkan / ulangi']];
  const row=a=>'<tr><td>'+a[0]+'</td><td>'+a[1]+'</td></tr>';
- let h='<h3>Pintasan keyboard</h3><table>'+sh.map(a=>row(['<kbd>'+a[0]+'</kbd>',a[1]])).join('')+'</table><p style="font-size:12px;color:var(--mu)">Di Mac, Ctrl diganti ⌘ dan Alt diganti ⌥. Belum didukung: multi-kursor, lipat kode, dan format otomatis. Di HP: ketuk chip pintasan di bawah tab kode untuk menyisipkan simbol atau snippet. Daftar saran muncul di dekat kursor saat mengetik: ketuk saran, atau tekan Tab untuk menerima yang tersorot. Saran bertanda ⚡ adalah snippet. Chip ↶ ↷ ⇤ ⇥ // ⧉ ↑ ↓ 🗑 ☰ adalah aksi cepat: urungkan, ulangi, indentasi, komentar, gandakan, pindah, hapus, dan pilih baris.</p>';
+ let h='<h3>Pintasan keyboard</h3><table>'+sh.map(a=>row(['<kbd>'+a[0]+'</kbd>',a[1]])).join('')+'</table>';
  ['html','css','js'].forEach(k=>{h+='<h3>Snippet '+k.toUpperCase()+' (ketik kata lalu Tab)</h3><table>'+Object.keys(SNIP[k]).map(t=>row(['<code>'+esc(t)+'</code>','<code>'+esc(SNIP[k][t].replace('¦','').split('\n')[0])+'</code>'])).join('')+'</table>'});
  $('#help .hb').innerHTML=h+'<p style="text-align:right"><button id="hx">Tutup</button></p>';
  $('#help').classList.remove('hide');$('#hx').onclick=()=>$('#help').classList.add('hide')}
@@ -1085,6 +1161,22 @@ $('#bClr').onclick=()=>{msgs=[];conRender()};
 $('#bPlus').onclick=()=>{S.fs=Math.min(26,S.fs+1);save();layout()};
 $('#bMinus').onclick=()=>{S.fs=Math.max(10,S.fs-1);save();layout()};
 $('#bOri').onclick=()=>{S.ori=S.ori==='v'?'h':'v';save();layout()};
+$('#bTw').onclick=()=>{
+ S.twEnabled=S.twEnabled===false;
+ save();
+ layout();
+ msg('Typewriter: '+(S.twEnabled?'aktif':'mati'));
+};
+$('#twSpeed').oninput=e=>{
+ S.twSpeed=+e.target.value;
+ $('#twSpeedLbl').textContent=S.twSpeed+'ms';
+ save();
+};
+$('#twPause').oninput=e=>{
+ S.twPause=+e.target.value;
+ $('#twPauseLbl').textContent=S.twPause+'ms';
+ save();
+};
 $('#bTheme').onclick=()=>{S.theme={auto:'light',light:'dark',dark:'auto'}[S.theme];save();layout();msg('Tema: '+S.theme)};
 $('#sz').oninput=e=>{S.sz=+e.target.value;$('#m').style.setProperty('--sz',S.sz+'%')};
 $('#sz').onchange=save;
@@ -1101,9 +1193,9 @@ function openDl(){
  const box=$('#sned .hb'),F=FILES();
  box.innerHTML='<h3>Opsi unduh</h3><div class="sdesc" style="font-size:12px;opacity:.75;margin-bottom:6px">Pilih berkas, lalu coba cara simpan. Jika satu cara tidak berfungsi di aplikasi/peramban Anda, coba cara lain.</div>'+
  '<div id="dlf" style="display:flex;flex-direction:column;gap:4px">'+F.map((f,i)=>'<label style="display:flex;gap:8px;align-items:center;padding:6px 8px;border:1px solid var(--bd);border-radius:8px"><input type="radio" name="dlf" value="'+i+'"'+(i===DLSEL?' checked':'')+'><span><b>'+f[0]+'</b> <span style="opacity:.7;font-size:12px">'+f[1]+' · '+f[2].length+' karakter</span></span></label>').join('')+'</div>'+
- '<div class="ba" style="justify-content:flex-start"><button data-m="a">⬇ Unduh</button><button data-m="s">💾 Simpan sebagai…</button><button data-m="h">📤 Bagikan</button><button data-m="o">↗ Buka di tab</button><button data-m="c">⧉ Salin</button></div>'+
+ '<div class="ba" style="justify-content:flex-start"><button data-m="a">'+SVG.download+' Unduh</button><button data-m="s">'+SVG.save+' Simpan sebagai…</button><button data-m="h">'+SVG.share+' Bagikan</button><button data-m="o">'+SVG.external+' Buka di tab</button><button data-m="c">'+SVG.copy+' Salin</button></div>'+
  '<div id="dlm" style="font-size:12px;margin-top:6px;min-height:16px"></div>'+
- '<h3 style="margin-top:12px">Unggah kode</h3><div class="ba" style="justify-content:flex-start;margin-top:4px"><label class="fl" style="display:inline-block;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--bd);border-radius:8px;padding:7px 12px;background:var(--bg)">⬆ Pilih berkas…<input type="file" id="fi2" multiple style="position:absolute;inset:0;opacity:0;width:100%;height:100%;font-size:200px;cursor:pointer"></label><button data-m="o2">📂 Buka pemilih (cara 2)</button></div>'+
+ '<h3 style="margin-top:12px">Unggah kode</h3><div class="ba" style="justify-content:flex-start;margin-top:4px"><label class="fl" style="display:inline-flex;align-items:center;gap:5px;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--bd);border-radius:8px;padding:7px 12px;background:var(--bg)">'+SVG.upload+' Pilih berkas…<input type="file" id="fi2" multiple style="position:absolute;inset:0;opacity:0;width:100%;height:100%;font-size:200px;cursor:pointer"></label><button data-m="o2">'+SVG.folder+' Buka pemilih (cara 2)</button></div>'+
  '<div style="font-size:12px;margin-top:8px">Atau tempel kode langsung (selalu berfungsi):</div><textarea id="pst" rows="5" placeholder="Tempel kode HTML / CSS / JS di sini…" style="width:100%;box-sizing:border-box;margin-top:4px;font:12px ui-monospace,monospace;background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:6px"></textarea><div class="ba" style="justify-content:flex-start;margin-top:4px"><select id="pto" style="font-size:13px;padding:6px;border-radius:8px"><option value="auto">Otomatis (pecah HTML/CSS/JS)</option><option value="html">Ke tab HTML</option><option value="css">Ke tab CSS</option><option value="js">Ke tab JS</option></select><button data-m="pm">Muat</button></div>'+
  '<div class="sdesc" style="font-size:12px;opacity:.75;margin-top:6px">Berkas .html dipecah otomatis ke tab HTML, CSS dan JS. Berkas .css / .js masuk ke tab yang sesuai. Berkas dapat juga diseret ke jendela ini.</div>'+
  '<div class="ba"><button data-m="x">Tutup</button></div>';
@@ -1114,17 +1206,17 @@ function openDl(){
   const m=b.dataset.m,f=FILES()[DLSEL];
   if(m==='x')return closeSnipEd();
   if(m==='o2'){if(window.showOpenFilePicker){try{const hs=await showOpenFilePicker({multiple:true});return impFiles(await Promise.all(hs.map(h=>h.getFile())))}catch(e){return say(e&&e.name==='AbortError'?'Dibatalkan':'Pemilih berkas tidak didukung di sini. Pakai tombol Pilih berkas atau tempel kode.')}}return $('#fi').click()}
-  if(m==='pm'){const t=$('#pst').value;if(!t.trim())return say('Kotak tempel masih kosong');const to=$('#pto').value;if(to==='auto')return impText('tempel.html',t,true);IMPBAK={html:S.html,css:S.css,js:S.js,tab:S.tab};setCode(to,t.replace(/\r\n?/g,'\n'));S.tab=to;save();layout();info();run();return say('Dimuat ke tab '+to.toUpperCase()+' ✓ (Urungkan: tempel ulang kode lama)')}
+  if(m==='pm'){const t=$('#pst').value;if(!t.trim())return say('Kotak tempel masih kosong');const to=$('#pto').value;if(to==='auto')return impText('tempel.html',t,true);IMPBAK={html:S.html,css:S.css,js:S.js,tab:S.tab};setCode(to,t.replace(/\r\n?/g,'\n'));S.tab=to;save();layout();info();run();return say('Dimuat ke tab '+to.toUpperCase()+' (Urungkan: tempel ulang kode lama)')}
   if(m==='t'){let t='';try{t=await navigator.clipboard.readText()}catch(e){}if(!t){t=prompt('Tempel kode di sini:')||''}if(!t.trim())return say('Tidak ada teks yang ditempel');return impText('tempel.html',t,true)}
   if(m==='a'){say(dlAnchor(f[0],f[2],f[3])?'Pengunduhan dimulai. Jika tidak ada berkas, coba "Simpan sebagai", "Bagikan" atau "Salin".':'Gagal, coba cara lain')}
-  else if(m==='s'){const r=await dlSave(f[0],f[2],f[3]);say(r===true?'Tersimpan ✓':r==='x'?'Dibatalkan':'Tidak didukung di sini, coba "Bagikan" atau "Unduh"')}
-  else if(m==='h'){const r=await dlShare(f[0],f[2],f[3]);say(r===true?'Dibagikan ✓':r==='x'?'Dibatalkan':'Bagikan tidak didukung, coba cara lain')}
+  else if(m==='s'){const r=await dlSave(f[0],f[2],f[3]);say(r===true?'Tersimpan':r==='x'?'Dibatalkan':'Tidak didukung di sini, coba "Bagikan" atau "Unduh"')}
+  else if(m==='h'){const r=await dlShare(f[0],f[2],f[3]);say(r===true?'Dibagikan':r==='x'?'Dibatalkan':'Bagikan tidak didukung, coba cara lain')}
   else if(m==='o'){say(dlOpen(f[2],f[3])?'Dibuka di tab baru':'Tab baru diblokir, coba "Salin"')}
-  else if(m==='c'){say(await CPY(f[2])?'Tersalin ✓ (tempel ke berkas di aplikasi lain)':'Gagal menyalin')}
+  else if(m==='c'){say(await CPY(f[2])?'Tersalin (tempel ke berkas di aplikasi lain)':'Gagal menyalin')}
  });
  $('#sned').classList.remove('hide')}
 $('#bDlx').onclick=openDl;
-function quickDl(){const ok=dlAnchor('index.html',build(false),'text/html');msg(ok?'Mengunduh index.html → folder Unduhan (Download)':'Gagal, buka "Opsi unduh"');if(!ok)openDl()}
+function quickDl(){const ok=dlAnchor('index.html',build(false),'text/html');msg(ok?'Mengunduh index.html → folder Unduhan':'Gagal, buka "Opsi unduh"');if(!ok)openDl()}
 $('#bDl').onclick=quickDl;
 let IMPBAK=null;
 function setCode(k,t){S[k]=t;EL[k].ta.value=t;paint(k)}
@@ -1148,10 +1240,10 @@ function impText(name,text,fromPaste){
   else{const r=impParse(text);setCode('html',r.html);done=['HTML'];setCode('css',r.css?r.css+'\n':'');done.push('CSS');setCode('js',r.js?r.js+'\n':'');done.push('JS');S.tab='html'}}
  save();layout();info();run();
  const box=$('#sned .hb');
- box.innerHTML='<h3>Berhasil dimuat ✓</h3><div style="font-size:13px;margin:6px 0">'+name.replace(/[<&]/g,'')+' → tab '+done.join(', ')+'</div><div class="ba"><button data-m="z">↶ Urungkan</button><button data-m="x">Selesai</button></div>';
+ box.innerHTML='<h3>Berhasil dimuat</h3><div style="font-size:13px;margin:6px 0">'+name.replace(/[<&]/g,'')+' → tab '+done.join(', ')+'</div><div class="ba"><button data-m="z">'+SVG.undo+' Urungkan</button><button data-m="x">Selesai</button></div>';
  box.querySelector('[data-m=z]').onclick=()=>{const b=IMPBAK;if(!b)return;['html','css','js'].forEach(k=>setCode(k,b[k]));S.tab=b.tab;IMPBAK=null;save();layout();info();run();msg('Impor diurungkan');closeSnipEd()};
  box.querySelector('[data-m=x]').onclick=closeSnipEd;
- $('#sned').classList.remove('hide');msg('Kode dimuat ✓')}
+ $('#sned').classList.remove('hide');msg('Kode dimuat')}
 async function impFiles(list){
  list=[...list];if(!list.length)return;
  if(list.length===1){let t;try{t=await list[0].text()}catch(e){return msg('Gagal membaca berkas')}return impText(list[0].name,t)}
@@ -1161,13 +1253,13 @@ async function impFiles(list){
   else if(/^m?js$/i.test(e)){setCode('js',t);done.push(f.name+' → JS')}
   else{const r=impParse(t);setCode('html',r.html);setCode('css',r.css?r.css+'\n':'');setCode('js',r.js?r.js+'\n':'');done.push(f.name+' → HTML')}}
  save();layout();info();run();
- const box=$('#sned .hb');box.innerHTML='<h3>Berhasil dimuat ✓</h3><div style="font-size:13px;margin:6px 0">'+done.map(x=>x.replace(/[<&]/g,'')).join('<br>')+'</div><div class="ba"><button data-m="z">↶ Urungkan</button><button data-m="x">Selesai</button></div>';
+ const box=$('#sned .hb');box.innerHTML='<h3>Berhasil dimuat</h3><div style="font-size:13px;margin:6px 0">'+done.map(x=>x.replace(/[<&]/g,'')).join('<br>')+'</div><div class="ba"><button data-m="z">'+SVG.undo+' Urungkan</button><button data-m="x">Selesai</button></div>';
  box.querySelector('[data-m=z]').onclick=()=>{const b=IMPBAK;if(!b)return;['html','css','js'].forEach(k=>setCode(k,b[k]));S.tab=b.tab;IMPBAK=null;save();layout();info();run();closeSnipEd()};
  box.querySelector('[data-m=x]').onclick=closeSnipEd;$('#sned').classList.remove('hide')}
 $('#fi3').onchange=e=>{const l=[...e.target.files];e.target.value='';if(l.length)impFiles(l)};
 $('#fi').onchange=e=>{const l=[...e.target.files];e.target.value='';impFiles(l)};
 ['dragover','drop'].forEach(ev=>addEventListener(ev,e=>{if(!e.dataTransfer||![...(e.dataTransfer.types||[])].includes('Files'))return;e.preventDefault();if(ev==='drop')impFiles(e.dataTransfer.files)}));
-$('#bCopy').onclick=async()=>{const x=build(false);try{await navigator.clipboard.writeText(x);msg('HTML lengkap tersalin ✓')}catch(e){const a=document.createElement('textarea');a.value=x;document.body.appendChild(a);a.select();try{document.execCommand('copy');msg('HTML lengkap tersalin ✓')}catch(_){msg('Gagal menyalin')}a.remove()}};
+$('#bCopy').onclick=async()=>{const x=build(false);try{await navigator.clipboard.writeText(x);msg('HTML lengkap tersalin')}catch(e){const a=document.createElement('textarea');a.value=x;document.body.appendChild(a);a.select();try{document.execCommand('copy');msg('HTML lengkap tersalin')}catch(_){msg('Gagal menyalin')}a.remove()}};
 let rs=0;
 $('#bReset').onclick=()=>{
  if(!rs){$('#bReset').textContent='Yakin?';rs=setTimeout(()=>{rs=0;$('#bReset').textContent='Reset'},3000);return}
@@ -1237,7 +1329,7 @@ function setMax(on){
  if(on&&!S.live)showLive(true);
  $('#rp').classList.toggle('mx',on);document.body.classList.toggle('lmx',on);$('#bMax').classList.toggle('on',on);
  sugHide();fit();avoidQ();
- msg(on?'Live memenuhi layar (Esc / ⛶ untuk mengecilkan)':'Live kembali ke ukuran semula')}
+ msg(on?'Live memenuhi layar':'Live kembali ke ukuran semula')}
 $('#bMax').onclick=()=>setMax(!MAXV);
 $('#rh').addEventListener('pointerdown',e=>{
  if(e.target.closest('button,select'))return;
@@ -1245,6 +1337,7 @@ $('#rh').addEventListener('pointerdown',e=>{
 addEventListener('keydown',e=>{
  if(e.altKey&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&e.code==='KeyF'){e.preventDefault();setMax(!MAXV)}
  else if(e.key==='Escape'&&MAXV&&$('#help').classList.contains('hide')&&$('#sned').classList.contains('hide'))setMax(false)});
+if(window.visualViewport)visualViewport.addEventListener('resize',()=>reveal(EL[S.tab].ta));
 layout();fit();showLive(!!S.live);ahApply();run();
 </script>
 </body>
